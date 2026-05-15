@@ -6,14 +6,38 @@ scans a barcode with a serial scanner, and the unit transmits a formatted
 `AT+SEND` packet over UART to a RYLR896-style LoRa module, which forwards it to
 a base station listening on address `100`.
 
-```text
-+---------+        +---------------+        +-------------+        +----------+
-|  Keypad | --PE-> |               | --PB-> |   2x20 LCD  |        |   Base   |
-+---------+        |  AVR128DB48   |        +-------------+        | Station  |
-+---------+        |    @ 4 MHz    |        +-------------+        |(addr 100)|
-| Barcode | --PC-> |               | --PF-> | LoRa Module | <-RF-> +----------+
-| Scanner |        +---------------+        +-------------+
-+---------+
+```mermaid
+flowchart LR
+    %% Inputs
+    keypad([Keypad]):::in
+    scanner([Barcode Scanner]):::in
+
+    %% Controller
+    subgraph mcu ["AVR128DB48 @ 4 MHz"]
+        pe[/"PORTE"/]
+        pc[/"PORTC / USART1"/]
+        pb[/"PORTB / USART3"/]
+        pf[/"PORTF / USART2"/]
+    end
+
+    %% Local peripherals
+    lcd([2x20 LCD]):::out
+    lora([LoRa Module]):::out
+
+    %% Remote endpoint
+    base([Base Station<br/>addr 100]):::remote
+
+    %% Signal flow
+    keypad  -- PE --> pe
+    scanner -- PC --> pc
+    pb -- PB --> lcd
+    pf -- PF --> lora
+    lora <-. RF .-> base
+
+    %% Styles
+    classDef in fill:#e6f2ff,stroke:#1f77b4,color:#000
+    classDef out fill:#eef7ee,stroke:#2e7d32,color:#000
+    classDef remote fill:#f7f7f7,stroke:#666,color:#000,stroke-dasharray:4 2
 ```
 
 ## Schematic
