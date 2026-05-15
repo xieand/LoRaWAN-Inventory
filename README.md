@@ -16,6 +16,10 @@ a base station listening on address `100`.
 +---------+
 ```
 
+## Schematic
+
+![LoRaWAN Inventory schematic](LoRaWAN_schem.png)
+
 ## Operation
 
 1. The LCD shows a cover page (`Inventory System I` / `ESE280 Fall 2025` /
