@@ -49,8 +49,8 @@ a base station listening on address `100`.
 |-------------------|-------------------|---------|------------------------|
 | LCD (Serial)      | PB0 (TX)          | USART3  | 9600 (`BAUD = 1667`)   |
 | Barcode scanner   | PC1 (RX)          | USART1  | 115200 (`BAUD = 139`)  |
-| LoRa radio        | PF0 (TX)          | USART2  | 115200 (`BAUD = 139`)  |
-| Matrix keypad     | PE3 (row IRQ), PC4-PC7 (columns) | --- | -- |
+| LoRa radio        | PF4 (TX)          | USART2  | 115200 (`BAUD = 139`)  |
+| Matrix keypad     | PC2 (row IRQ), PC4-PC7 (columns) | --- | -- |
 
 CPU clock is assumed to be the post-reset 4 MHz internal oscillator (no clock
 fuses or `CLKCTRL` writes are performed).
