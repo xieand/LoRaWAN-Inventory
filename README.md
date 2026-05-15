@@ -3,7 +3,7 @@ ESE 280 — Lab 12 LoRaWAN Inventory — Andy Xie
 A small AVR assembly firmware for an **AVR128DB48** that turns the board into a
 handheld inventory terminal. The operator enters a quantity on a matrix keypad,
 scans a barcode with a serial scanner, and the unit transmits a formatted
-`AT+SEND` packet over UART to a RYLR998-style LoRa module, which forwards it to
+`AT+SEND` packet over UART to a RYLR896-style LoRa module, which forwards it to
 a base station listening on address `100`.
 
 ```text
