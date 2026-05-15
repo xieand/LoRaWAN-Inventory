@@ -1,4 +1,4 @@
-ESE 280 — Lab 12 LoRaWAN Inventory — Andy Xie
+## LoRaWAN Inventory
 
 A small AVR assembly firmware for an **AVR128DB48** that turns the board into a
 handheld inventory terminal. The operator enters a quantity on a matrix keypad,
